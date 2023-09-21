@@ -5,6 +5,7 @@ get_branches() {
     git fetch -p
     git branch -r | grep "origin/release-" | grep -v "HEAD" | sed 's/origin\///' | tr -d ' ' 
 }
+BRANCHES=($(get_branches))
 
 # Function to checkout to a given branch
 checkout_branch() {
