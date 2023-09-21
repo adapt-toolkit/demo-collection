@@ -1,3 +1,6 @@
 [submodule "basic-messenger-demo"]
 	path = basic-messenger-demo
 	url = git@github.com:adapt-toolkit/basic-messenger-demo.git
+[submodule "messenger-demo"]
+	path = messenger-demo
+	url = git@github.com:adapt-toolkit/messenger-demo.git
