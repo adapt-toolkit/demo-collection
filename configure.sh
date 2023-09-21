@@ -1,7 +1,10 @@
 #!/bin/bash
 
-# Hardcoded list of branches
-BRANCHES=("release-0.1")  # Add more as needed
+# Function to get all release branches
+get_branches() {
+    git fetch -p
+    git branch -r | grep "origin/release-" | sed 's/origin\///' | tr -d ' ' 
+}
 
 # Function to checkout to a given branch
 checkout_branch() {
@@ -28,6 +31,7 @@ show_help() {
 case $1 in
     -l|--list)
         echo "Available release versions:"
+        BRANCHES=($(get_branches))
         LATEST_BRANCH="${BRANCHES[-1]}"
         for (( idx=${#BRANCHES[@]}-1 ; idx>=0 ; idx-- )); do
             branch="${BRANCHES[idx]}"
