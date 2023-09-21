@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Hardcoded list of branches
-BRANCHES=("release-0.1" "release-0.2")  # Add more as needed
+BRANCHES=("release-0.1")  # Add more as needed
 
 # Function to checkout to a given branch
 checkout_branch() {
@@ -28,8 +28,14 @@ show_help() {
 case $1 in
     -l|--list)
         echo "Available release versions:"
-        for branch in "${BRANCHES[@]}"; do
-            echo "- $branch"
+        LATEST_BRANCH="${BRANCHES[-1]}"
+        for (( idx=${#BRANCHES[@]}-1 ; idx>=0 ; idx-- )); do
+            branch="${BRANCHES[idx]}"
+            if [ "$branch" == "$LATEST_BRANCH" ]; then
+                echo -e "- $branch (\033[34mdefault\033[0m)"
+            else
+                echo "- $branch"
+            fi
         done
         ;;
     -h|--help)
