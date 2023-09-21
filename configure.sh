@@ -14,6 +14,9 @@ checkout_branch() {
   git submodule update --init --recursive
 }
 
+BRANCHES=($(get_branches))
+
+
 # Function to display help
 show_help() {
     echo "Usage: ./configure.sh [OPTION] [BRANCH]"
@@ -31,7 +34,6 @@ show_help() {
 case $1 in
     -l|--list)
         echo "Available release versions:"
-        BRANCHES=($(get_branches))
         LATEST_BRANCH="${BRANCHES[-1]}"
         for (( idx=${#BRANCHES[@]}-1 ; idx>=0 ; idx-- )); do
             branch="${BRANCHES[idx]}"
