@@ -2,7 +2,7 @@
 
 Welcome to the `demo-collection` repository, a curated set of public demos showcasing the capabilities of ADAPT.
 
-## Current Release: `release-0.1`
+## Current Release: `release-0.2`
 
 ## Switching Between Releases
 
@@ -30,6 +30,7 @@ The latest release will be marked as (default) in the list. When switching betwe
 | Path | Description |
 |---   |---          |
 | [basic-messenger-demo](./basic-messenger-demo/) | Basic implementation of P2P messaging |
+| [messenger-demo](./messenger-demo/) | End-to-end encrypted serverless P2P messenger
 
 
 ## Running the Demos
